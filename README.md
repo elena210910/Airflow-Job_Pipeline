@@ -38,8 +38,19 @@ RESULTADO OBTENIDO:
 
 
 
-- Creación del [DAG:](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/DAG_python) Basado en el código verificado, creé un DAG en Airflow para automatizar el proceso de carga de datos.
+- Creación del [DAG:](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/DAG_python) Basado en el código verificado, creé un DAG en Airflow para automatizar el proceso de carga 
+  de datos.
   Guardado de datos en AWS S3: Una vez que los datos fueron guardados en AWS S3, verifiqué su disponibilidad y la integridad.
+  
+  RESUNTADO OBTENIDO:
+  
+  ![](![image](https://github.com/user-attachments/assets/b9b02c38-67f6-40db-92b5-828767957273)
+
+
+  ![](![image](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/s3_dag.PNG)
+  
+
+  
 
   
 
