@@ -31,11 +31,16 @@ mostrar cómo han cambiado las tendencias en la industria de la construcción.
 
 
 
+
 ### ***Proceso de creación del pipeline***
 
 - Verificación del [código](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/first_code_python) y acceso a la API: 
   Antes de crear el DAG, verifiqué el funcionamiento del código y la correcta conexión a la API
   para asegurarme de que los datos se obtuvieran correctamente.
+  Los datos obtenidos a través del API vienen en formato JSON, pero como tienen una estructura organizada (cada objeto tiene las mismas claves),
+  se pueden transformar fácilmente en un formato tabular utilizando pandas y un DataFrame.
+  Esto me permite manejar y analizar los datos de manera más eficiente en un entorno de análisis estructurado.
+
 
 RESULTADO OBTENIDO:
 
