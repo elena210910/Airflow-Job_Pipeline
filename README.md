@@ -4,7 +4,7 @@
 
 
 ## Objetivo del Proyecto
-El objetivo es crear un pipeline que cargue los datos automáticamente una vez al día. 
+El objetivo es crear un pipeline que cargue los datos automáticamente una vez al día utilizando Apache Airflow.🚀 
 Esto permitirá mantener los datos actualizados y disponibles para análisis continuos sin intervención manual.
 Además, los datos finales serán cargados en AWS S3, asegurando que estén accesibles y almacenados de manera segura.
 
