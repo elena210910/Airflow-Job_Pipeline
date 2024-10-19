@@ -86,11 +86,11 @@ RESULTADO OBTENIDO:
 
    4. Muestra las primeras filas del DataFrame.
 
-   5.Calcula y muestra el número de filas y columnas.
+   5. Calcula y muestra el número de filas y columnas.
 
    6. Encuentra y cuenta los duplicados en el DataFrame.
 
-  Ahora, con los datos disponibles, es posible trabajar con ellos y realizar diferentes análisis analíticos.
+  **Ahora, con los datos disponibles, es posible trabajar con ellos y realizar diferentes análisis analíticos.**
 
     ![](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/final_code.PNG)
   
