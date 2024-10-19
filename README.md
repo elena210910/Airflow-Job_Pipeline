@@ -26,4 +26,21 @@ El objetivo es crear un pipeline que cargue los datos automáticamente una vez a
 Esto permitirá mantener los datos actualizados y disponibles para análisis continuos sin intervención manual.
 Además, los datos finales serán cargados en AWS S3, asegurando que estén accesibles y almacenados de manera segura.
 
+***Proceso de creación del pipeline***
+
+Verificación del [código](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/first_code_python) y acceso a la API: 
+Antes de crear el DAG, verifiqué el funcionamiento del código y la correcta conexión a la API
+para asegurarme de que los datos se obtuvieran correctamente.
+
+RESULTADO OBTENIDO:
+
+![](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/first_code.PNG)
+
+
+Creación del DAG: Basado en el código verificado, creé un DAG en Airflow para automatizar el proceso de carga de datos.
+
+Guardado de datos en AWS S3: Una vez que los datos fueron guardados en AWS S3, verifiqué su disponibilidad y la integridad.
+
+Acceso a los datos en S3: Después de guardar los datos en S3, utilicé Dask para analizarlos y extraerlos desde S3.
+
 
