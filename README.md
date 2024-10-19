@@ -3,6 +3,7 @@
 Descripción de los datos y su utilidad para el estudio
 Este conjunto de datos contiene todas las solicitudes de trabajo presentadas a través de las oficinas de los distritos,
 mediante eFiling o a través de HUB, que tienen una "Fecha de última acción" desde el 1 de enero de 2000. Este conjunto de datos no incluye trabajos presentados a través de DOB NOW.
+[El enlase de pagina web con los datos](https://data.cityofnewyork.us/Housing-Development/DOB-Job-Application-Filings/ic3t-wcy2/about_data)
 
 ## Utilidad del estudio de estos datos
 
