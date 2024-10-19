@@ -1,5 +1,8 @@
 # Airflow-Job_Pipeline
 
+![](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/apache%20air.jpg)
+
+
 Descripción de los datos y su utilidad para el estudio
 Este conjunto de datos contiene todas las solicitudes de trabajo presentadas a través de las oficinas de los distritos,
 mediante eFiling o a través de HUB, que tienen una "Fecha de última acción" desde el 1 de enero de 2000. Este conjunto de datos no incluye trabajos presentados a través de DOB NOW.
