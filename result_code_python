@@ -1,0 +1,47 @@
+import boto3
+import dask.dataframe as dd
+import os
+
+# UCredenciales AWS
+aws_access_key_id = 'your_aws_access_key_id'
+aws_secret_access_key = 'your_aws_secret_access_key'
+
+
+
+# Creación de la sesión Boto3
+session = boto3.Session(
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+)
+
+# Creación del cliente S3
+s3_client = session.client('s3')
+
+# Verificación de la disponibilidad del archivo
+bucket_name = 'dob-job-parquet'
+file_key = 'cleaned_data_2024-10-19.parquet'
+
+try:
+    s3_client.head_object(Bucket=bucket_name, Key=file_key)
+    print("El archivo está disponible en S3.")
+except Exception as e:
+    print(f"Error al acceder al archivo: {e}")
+
+# Lectura del archivo Parquet con Dask
+df = dd.read_parquet(f's3://{bucket_name}/{file_key}', storage_options={
+    'key': aws_access_key_id,
+    'secret': aws_secret_access_key,
+})
+
+# Vista previa de las primeras filas del DataFrame
+print(df.head())
+
+# Obtener el número de filas y columnas
+nrows = df.shape[0].compute()
+ncols = df.shape[1]
+print(f"Número de filas: {nrows}, Número de columnas: {ncols}")
+
+# Encontrar duplicados
+dup_count = df.groupby(df.columns.tolist()).size().compute()
+dup_count = dup_count[dup_count > 1].sum()
+print(f"Número de duplicados: {dup_count}")
