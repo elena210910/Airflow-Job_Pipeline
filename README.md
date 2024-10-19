@@ -70,6 +70,31 @@ RESULTADO OBTENIDO:
 
   
 
-Acceso a los datos en S3: Después de guardar los datos en S3, utilicé Dask para analizarlos y extraerlos desde S3.
+
+
+- Acceso a los datos en S3: Después de guardar los datos en S3, utilicé biblioteca Dask para analizarlos y extraerlos desde S3.
+  [Este código](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/result_code_python) es una demostración y verificación de que 
+  nuestro DAG funciona correctamente, guardando y leyendo datos desde AWS S3 de manera exitosa. 🎯
+  
+   ***El codigo realiza las siguientes acciones:***
+
+   1. Crea una sesión y cliente S3 utilizando las credenciales de AWS.
+
+   2. Verifica si un archivo específico está disponible en un bucket S3.
+
+   3. Lee el archivo Parquet desde S3 utilizando Dask.
+
+   4. Muestra las primeras filas del DataFrame.
+
+   5.Calcula y muestra el número de filas y columnas.
+
+   6. Encuentra y cuenta los duplicados en el DataFrame.
+
+  Ahora, con los datos disponibles, es posible trabajar con ellos y realizar diferentes análisis analíticos.
+
+    ![](https://github.com/elena210910/Airflow-Job_Pipeline/blob/main/final_code.PNG)
+  
+
+
 
 
