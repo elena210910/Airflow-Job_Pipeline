@@ -1,0 +1,61 @@
+from airflow.decorators import dag, task
+from airflow.hooks.S3_hook import S3Hook
+import requests
+import pandas as pd
+from datetime import datetime
+
+# Nombre de tu bucket S3
+S3_BUCKET_NAME = 'dob-job-parquet'
+
+# Definición del DAG usando un decorador(Task API)
+@dag(
+    schedule_interval='@daily',  # Ejecución diaria
+    start_date=datetime(2024, 10, 18),
+    catchup=False,
+    default_args={'owner': 'airflow', 'retries': 1},   # 'retries': 1 -Número de intentos en caso de fallo
+    tags=['taskflow_api_example'])
+def dob_job_application_filings_dag():
+    
+    @task
+    def fetch_data():
+        # URL de la API
+        url = "https://data.cityofnewyork.us/resource/ic3t-wcy2.json"
+        
+        # Solicitud GET a la API
+        response = requests.get(url)
+        
+        # Verificación del estado de la respuesta
+        if response.status_code == 200:
+            # Conversión de los datos JSON a un DataFrame de Pandas
+            data = response.json()
+            return data
+        else:
+            raise Exception(f"Error al obtener datos: {response.status_code}")
+    
+    @task
+    def clean_and_upload_data(data):
+        # Conversión de los datos a un DataFrame
+        df = pd.DataFrame(data)
+        
+        # Limpiar los datos
+        df_cleaned = df.loc[:, df.isnull().mean() < 0.5]
+        
+        # Guardar los datos limpiados en formato Parquet con un nombre único basado en la fecha actual
+        current_date = datetime.now().strftime('%Y-%m-%d')
+        parquet_file_path = f'/opt/airflow/dags/cleaned_data_{current_date}.parquet'
+        df_cleaned.to_parquet(parquet_file_path, index=False)
+        
+        # Cargar el archivo en S3 con un nombre único basado en la fecha actual
+        s3_hook = S3Hook(aws_conn_id='my_s3_connection')
+        s3_hook.load_file(filename=parquet_file_path, key=f'cleaned_data_{current_date}.parquet', bucket_name=S3_BUCKET_NAME, replace=True)
+        print(f"Datos limpiados y guardados en el bucket S3: {S3_BUCKET_NAME} como cleaned_data_{current_date}.parquet")
+    
+    # Tareas
+    data = fetch_data()
+    clean_and_upload_data(data)
+    
+    # Definición de dependencias
+    fetch_data() >> clean_and_upload_data(data)
+
+# Inicialización del DAG
+dag_instance = dob_job_application_filings_dag()
