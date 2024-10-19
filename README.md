@@ -83,17 +83,17 @@ RESULTADO OBTENIDO:
   
    ***El codigo realiza las siguientes acciones:***
 
-   1. Crea una sesión y cliente S3 utilizando las credenciales de AWS.
+   ✅ Crea una sesión y cliente S3 utilizando las credenciales de AWS.
 
-   2. Verifica si un archivo específico está disponible en un bucket S3.
+   ✅ Verifica si un archivo específico está disponible en un bucket S3.
 
-   3. Lee el archivo Parquet desde S3 utilizando Dask.
+   ✅ Lee el archivo Parquet desde S3 utilizando Dask.
 
-   4. Muestra las primeras filas del DataFrame.
+   ✅ Muestra las primeras filas del DataFrame.
 
-   5. Calcula y muestra el número de filas y columnas.
+   ✅ Calcula y muestra el número de filas y columnas.
 
-   6. Encuentra y cuenta los duplicados en el DataFrame.
+   ✅ Encuentra y cuenta los duplicados en el DataFrame.
 
   **Ahora, con los datos disponibles, es posible trabajar con ellos y realizar diferentes análisis analíticos.**
 
