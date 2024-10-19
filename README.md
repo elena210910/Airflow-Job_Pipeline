@@ -24,3 +24,6 @@ mostrar cómo han cambiado las tendencias en la industria de la construcción.
 ## Objetivo del Proyecto
 El objetivo es crear un pipeline que cargue los datos automáticamente una vez al día. 
 Esto permitirá mantener los datos actualizados y disponibles para análisis continuos sin intervención manual.
+Además, los datos finales serán cargados en AWS S3, asegurando que estén accesibles y almacenados de manera segura.
+
+
